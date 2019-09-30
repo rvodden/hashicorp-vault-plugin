@@ -60,7 +60,7 @@ public class VaultTokenFileCredential extends AbstractVaultTokenCredential {
         @NonNull
         @Override
         public String getDisplayName() {
-            return "Vault Token File Credential";
+            return "(Old) Vault Token File Credential";
         }
 
     }

@@ -44,7 +44,7 @@ public class VaultGithubTokenCredential extends AbstractVaultTokenCredential {
         @NonNull
         @Override
         public String getDisplayName() {
-            return "Vault Github Token Credential";
+            return "(Old) Vault Github Token Credential";
         }
     }
 }

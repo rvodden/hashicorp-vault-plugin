@@ -62,7 +62,7 @@ public class VaultAppRoleCredential extends AbstractVaultTokenCredential {
         @NonNull
         @Override
         public String getDisplayName() {
-            return "Vault App Role Credential";
+            return "(Old) Vault App Role Credential";
         }
 
     }

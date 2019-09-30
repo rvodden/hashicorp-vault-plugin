@@ -59,7 +59,7 @@ public class VaultGCPCredential extends AbstractVaultTokenCredential {
         @NonNull
         @Override
         public String getDisplayName() {
-            return "Vault GCP Credential";
+            return "(Old) Vault GCP Credential";
         }
 
     }

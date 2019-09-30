@@ -9,6 +9,7 @@ import com.bettercloud.vault.response.VaultResponse;
 import com.datapipe.jenkins.vault.credentials.VaultCredential;
 import com.datapipe.jenkins.vault.exception.VaultPluginException;
 import java.io.Serializable;
+import javax.xml.bind.ValidationException;
 
 public class VaultAccessor implements Serializable {
 
@@ -17,7 +18,6 @@ public class VaultAccessor implements Serializable {
     private transient Vault vault;
 
     private transient VaultConfig config;
-
 
     public void init(String url) {
         init(url, null, false);
@@ -54,6 +54,16 @@ public class VaultAccessor implements Serializable {
         } catch (VaultException e) {
             throw new VaultPluginException(
                 "could not read from vault: " + e.getMessage() + " at path: " + path, e);
+        }
+    }
+
+    public LogicalResponse list(String path, Integer engineVersion) {
+        try {
+            this.config.engineVersion(engineVersion);
+            return vault.logical().list(path);
+        } catch (VaultException e) {
+            throw new VaultPluginException(
+                "could not list secrets: " + e.getMessage() + " at path: " + path, e);
         }
     }
 
